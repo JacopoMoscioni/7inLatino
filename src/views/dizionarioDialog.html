@@ -1,0 +1,36 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form>
+        <md-dialog-content style="max-width:800px;max-height:810px; ">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Dettaglio">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">{{titolo}}</h1>
+                        <div class="description">
+                            <p><strong>{{vocabolo.lemma.nome}}</strong>: {{vocabolo.lemma.grammatica}}</p>
+                            <p ng-if="vocabolo.lemma.paradigma != '(null)'">Paradigma: {{vocabolo.lemma.paradigma}}</p>
+                            <div><span><strong>Traduzioni:</strong></span><span ng-bind-html="vocabolo.lemma.traduzione"></span></div>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Esempi d'uso" ng-if ="vocabolo.citazioni && vocabolo.citazioni.length > 0">
+                    <md-content class = "md-padding">
+                        <ul>
+                            <li ng-repeat = "citazione in vocabolo.citazioni" >
+                                <strong>{{citazione.originale}}</strong>:{{citazione.traduzione}}
+                            </li>
+                        </ul>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer('not useful')" >
+                Utile
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+                Non utile
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

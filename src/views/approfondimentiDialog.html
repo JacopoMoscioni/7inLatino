@@ -1,0 +1,19 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form>
+        <md-dialog-content style="max-width:800px;max-height:810px; ">
+            <md-content class="md-padding">
+                <h1 >{{titolo}}</h1>
+                <p ng-bind-html="contenuto"></p>
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer('not useful')" >
+                Utile
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+                Non utile
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

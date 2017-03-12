@@ -1,0 +1,50 @@
+<!--<md-list flex ng-if="libroSelezionato == null">
+    <md-list-item class="md-3-line" ng-repeat="item in listaLibri" ng-click="selezionaLibro({index:$index})">
+        <div class="md-list-item-text" layout="column">
+            <h3>{{item.titolo}}</h3>
+        </div>
+    </md-list-item>
+</md-list>
+
+<div ng-if="libroSelezionato != null">
+-->
+    <md-select name="repeatSelect" id="repeatSelect" ng-model="models.selectLibri" ng-change="selezionaLibro({id:models.selectLibri})">
+        <md-option ng-repeat="item in listaLibri" value="{{item.id}}">{{item.titolo}}</md-option>
+    </md-select>
+    <md-content ng-if ="models.selectLibri!= ''">
+        <p>{{listaLibri[libroSelezionato-1].titolo}}</p>
+        <md-autocomplete
+                md-selected-item="esercizioSelezionato"
+                md-selected-item-change="esercizioSelezionatoFn(item)"
+                md-search-text="models.searchText"
+                md-items="item in filtra(models.searchText)"
+                md-item-text="item.dettaglio"
+                md-min-length="0"
+                placeholder="Es: Pag 145 Esercizio 4">
+            <md-item-template>
+                <span md-highlight-text="models.searchText" md-highlight-flags="^i">{{item.dettaglio}} - ({{item.titolo}})</span>
+
+            </md-item-template>
+            <md-not-found>
+                Nessun esercizio trovato per: "{{models.searchText}}"
+            </md-not-found>
+        </md-autocomplete>
+
+
+        <md-content flex layout-padding>
+            <p ng-bind-html="svolgimento">
+            </p>
+        </md-content>
+
+        <md-list flex ng-if = "esercizioScaricato">
+            <md-list-item class="md-3-line" ng-repeat="item in jsonResponse" ng-click="null">
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{item.titolo}}</h3>
+                    <p>{{item.dettaglio}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+<!--
+</div>
+-->

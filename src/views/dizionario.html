@@ -1,0 +1,19 @@
+<md-input-container class="md-block" flex-gt-sm>
+    <label>Cerca</label>
+    <input ng-model = "parola" ng-change = "cerca()" ng-model-options = "{debounce: 1000 }">
+</md-input-container>
+
+<md-virtual-repeat-container style="height: 600px" >
+    <div  class="repeated-item"
+         md-virtual-repeat="vocabolo in listaVocaboli"
+         md-on-demand
+         ng-click="dettaglio({id:vocabolo.id,nome:vocabolo.nome,event:$event})">
+        
+        <p>{{vocabolo.nome}} </p>
+        <div class="description">
+            <p ng-bind-html="vocabolo.dettaglio.lemma.traduzione"></p>
+            <p>{{vocabolo.dettaglio.lemma.grammatica}}</p>
+            <p>{{vocabolo.dettaglio.lemma.paradigma}}</p>
+        </div>
+    </div>
+</md-virtual-repeat-container>

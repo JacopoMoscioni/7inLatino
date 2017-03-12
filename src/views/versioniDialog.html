@@ -1,0 +1,40 @@
+<md-dialog class="fullscreen-dialog">
+    <div ng-hide="profInArrivo">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h1 >{{titolo}} - {{autore}}</h1>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content >
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Traduzione">
+                    <md-content class="md-padding">
+                       <p>{{traduzione}}</p>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Originale">
+                    <md-content class="md-padding">
+                        <p>{{originale}}</p>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="profInArrivoFn()" md-autofocus>
+                Prof in arrivo
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="answer('not useful')" >
+                Utile
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+                Non utile
+            </md-button>
+        </md-dialog-actions>
+    </div>
+    <ds-widget-clock ng-show="profInArrivo" theme="dark" show-secs="true" digital-format="'hh:mm:ss a'"></ds-widget-clock>
+</md-dialog>

@@ -1,0 +1,12 @@
+<md-content ng-controller="LeftMenuCtrl" layout-padding>
+    <md-list flex>
+        <md-list-item class="md-3-line" ng-repeat="item in menuList" >
+            <img ng-src="{{item.img}}?{{$index}}" class="md-avatar" alt="{{item.title}}" />
+            <div class="md-list-item-text" layout="column">
+                <h3><a ng-href="{{item.anchor}}">{{item.title}}</a></h3>
+                <p>{{item.notes}}</p>
+            </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+    </md-list>
+</md-content>

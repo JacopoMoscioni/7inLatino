@@ -1,0 +1,12 @@
+<md-input-container class="md-block">
+    <label>Ricerca rapida</label>
+    <input ng-model="parolaRicerca.$"/>
+</md-input-container>
+
+<div class='md-padding' layout="row"  layout-align="center center" layout-wrap id ="popupContainer">
+    <md-card style="max-width:30%;padding:1px; margin:2px" ng-repeat="itemObj in listaDownloaded | filter:parolaRicerca:strict | orderBy:'titolo'" md-theme="{{itemObj.id == undefined ? 'dark-orange':''}}" md-theme-watch >
+        <md-card-content  style="padding:2px; margin:2px" ng-click="open({event:$event,indice:$index,itemObj:itemObj})">
+            <p class="md-caption" >{{itemObj.titolo}}</p>
+        </md-card-content>
+    </md-card>
+</div>

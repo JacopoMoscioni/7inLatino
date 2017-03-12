@@ -1,0 +1,12 @@
+<md-input-container>
+    <label>Ricarca rapida</label>
+    <input ng-model="parolaRicerca.$"/>
+</md-input-container>
+
+<div class='md-padding' layout="row"  layout-align="center center" layout-wrap id ="popupContainer">
+    <md-card  ng-repeat="itemObj in listaAppunti | filter:parolaRicerca:strict">
+        <md-card-content ng-click="open({event:$event,indice:$index,itemObj:itemObj})">
+            <p>{{itemObj.titolo}}</p>
+        </md-card-content>
+    </md-card>
+</div>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it" >
+<head>
+    <title>7inLatino App</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.css"/>
+    <link rel="stylesheet" href="styles/mystyle.css"/>
+    <link rel="stylesheet" href="app/assets/app.css"/>
+
+    <link rel="stylesheet"href="bower_components/ng-material-floating-button/mfb/dist/mfb.css"/>
+    <link rel="stylesheet" href="bower_components/angular-ui-clock/dist/angular-clock.css">
+    <link href='//fonts.googleapis.com/css?family=Syncopate:400,700' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+</head>
+
+<body ng-app="starterApp" layout="row" ng-controller="setteInLatinoCtrl" ng-cloak>
+<section layout="row" flex>
+    <div ng-cloak style="width:100%" layout="column">
+
+
+        <md-toolbar class="md-primary" md-scroll-shrink style="width: 100%;">
+            <div class="md-toolbar-tools">
+                <h2 class="md-flex" style="text-align: left;width:100%;color:black;" ng-click="onSwipeRight()">apri</h2>
+                <h2 class="md-flex" style="text-align: center;width:100%;color:black;">7inLatino</h2>
+                <h2 class="md-flex" style="text-align: right;width:100%;color:black;"></h2>
+            </div>
+
+        </md-toolbar>
+
+        <md-content flex layout-padding class="demo-swipe" md-swipe-right="onSwipeRight()">
+            <div ng-view ></div>
+        </md-content>
+
+        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="leftMenu" layout="column">
+            <md-toolbar md-scroll-shrink class="md-theme-light">
+                <h1 class="md-toolbar-tools">Menu</h1>
+            </md-toolbar>
+            <ng-include  src="'src/views/leftMenu.html'"></ng-include>
+        </md-sidenav>
+    </div>
+</section>
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js "></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js "></script>
+<script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-ui-clock/dist/angular-clock.min.js"></script>
+
+<script src="src/scripts/modules/SetteinLatinoModule.js"></script>
+<script src="src/scripts/config/routing.js"></script>
+<script src ="src/scripts/config/themes.js"></script>
+<script src="src/scripts/services/dataService.js"></script>
+<script src="src/scripts/services/commonObjectService.js"></script>
+
+<script src="src/scripts/controllers/SetteinLatinoCtrl.js"></script>
+<script src="src/scripts/controllers/VersioniCtrl.js"></script>
+<script src="src/scripts/controllers/EserciziCtrl.js"></script>
+<script src="src/scripts/controllers/DizionarioCtrl.js"></script>
+<script src="src/scripts/controllers/LeftMenuCtrl.js"></script>
+<script src="src/scripts/controllers/AppuntiCtrl.js"></script>
+<script src="src/scripts/controllers/ApprofondimentiCtrl.js"></script>
+<script src="src/scripts/controllers/ProfInArrivoCtrl.js"></script>
+<script src="src/scripts/controllers/FBLoginCtrl.js"></script>
+
+
+<script src="src/scripts/constants/costanti.js"></script>
+<script src="src/scripts/constants/endpoints.js"></script>
+<script src="bower_components/ng-material-floating-button/src/mfb-directive.js"></script>
+
+</body>
+</html>
